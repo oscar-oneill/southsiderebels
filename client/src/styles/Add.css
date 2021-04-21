@@ -1,0 +1,95 @@
+.add_container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.addForm_container {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.add_header {
+    height: 60px;
+    width: auto;
+    color: #000;
+    font-size: 30px;
+    padding: 5px;
+    font-family: "Space Grotesk-Medium";
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+.success {
+    display: flex;
+    background: transparent;
+    margin-bottom: 10px;
+    font-family: "Space Grotesk-SemiBold";
+}
+
+.success .player_card {
+  height: 75px;
+  width: auto;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  color: #000;
+  margin: 5px;
+  padding: 10px;
+}
+
+.success .player_data {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.success .card_left {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+#success {
+    height: 25px;
+    width: 25px;
+    object-fit: contain;
+    position: relative;
+    margin-right: 5px;
+}
+
+.success .card_left img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-right: 5px;
+}
+
+.success .card_right {
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.success .name_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  height: auto;
+  width: auto;
+}

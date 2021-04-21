@@ -1,0 +1,27 @@
+.list_container {
+    height: 100%;
+    width: 300px;
+    background: #091721;
+    position: relative;
+    left: 75px;
+}
+
+.list_input {
+    height: 75px;
+    width: 100%;
+    background: #37ABFF;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+}
+
+.list_input::placeholder {
+    color: #fff;
+}
+
+.list_display {
+    height: 100%;
+    width: 100%;
+    background: salmon;
+}

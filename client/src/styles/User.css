@@ -1,0 +1,19 @@
+.user_container {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+.user_container:hover {
+    background: #fff !important;
+    color: #000 !important;
+    transition: .2s ease-in-out;
+}
+

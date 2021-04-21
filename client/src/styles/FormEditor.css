@@ -1,0 +1,78 @@
+.addPlayer_form {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+  top: 70px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.addPlayer_form input,
+.addPlayer_form select {
+  height: 30px;
+  min-width: 275px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #000;
+  font-size: 15px;
+  margin: 0px 10px 10px 10px;
+  padding-left: 10px;
+  box-shadow: rgb(165, 205, 214) -5px 5px 0px;
+}
+
+.addPlayer_form input, .addPlayer_form label {
+  display: block;
+  text-align: left;
+}
+
+.addPlayer_form label {
+  margin-left: 10px;
+}
+
+input[type="text"] {
+  -webkit-appearance: none;
+}
+
+::placeholder {
+  color: #000;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.update_button,
+.delete_button {
+  height: 50px;
+  width: 120px;
+  border-radius: 10px;
+  background-color: #8777ec;
+  color: #f6f4ff;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.update_button:hover {
+  background: #f6f4ff;
+  color: #8777ec;
+  transition: 0.2s ease-in-out;
+}
+
+.delete_button {
+  background: #fa6161;
+  color: #feeaea;
+  margin-left: 10px;
+}
+
+.delete_button:hover {
+  background: yellow;
+  color: #000;
+}

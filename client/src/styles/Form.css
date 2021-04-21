@@ -1,0 +1,57 @@
+.addPlayer_form {
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    top: 70px;
+    overflow-y: scroll;
+}
+
+.addPlayer_form input, .addPlayer_form select {
+    height: 55px;
+    min-width: 275px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #000;
+    font-size: 15px;
+    margin: 10px;
+    padding-left: 10px;
+    box-shadow: rgb(165, 205, 214) -5px 5px 0px;
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+}
+
+::placeholder {
+    color: #000;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.submit_button {
+    height: 50px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: #31DA75;
+    color: #DCFFDD;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    font-family: 'Space Grotesk-Medium';
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.submit_button:hover {
+    background: #DCFFDD;
+    color: #14ac50;
+    transition: .2s ease-in-out;
+}

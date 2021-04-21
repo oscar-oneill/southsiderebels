@@ -1,0 +1,43 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'Space Grotesk-Regular';
+    src: url('./fonts/SpaceGrotesk-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Space Grotesk-Medium';
+    src: url('./fonts/SpaceGrotesk-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Space Grotesk-SemiBold';
+    src: url('./fonts/SpaceGrotesk-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Helvetica Neue Black-Ext';
+    src: url('./fonts/HelveticaNeue-BlackExt.woff');
+}
+
+body {
+    font-family: 'Space Grotesk-Regular';
+    display: flex;
+}
+
+a {
+    color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+html {
+    scroll-behavior: smooth;
+}

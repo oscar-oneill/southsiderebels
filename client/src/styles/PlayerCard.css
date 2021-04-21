@@ -1,0 +1,51 @@
+.player_card {
+  height: 75px;
+  width: 275px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  color: #000;
+  margin: 5px;
+  border: 1px solid #000;
+  box-shadow: #a5cdd6 -5px 5px 0px;
+}
+
+.player_info {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.card_left {
+  height: 100%;
+  width: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_left img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.card_right {
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.name_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  height: auto;
+  width: auto;
+}

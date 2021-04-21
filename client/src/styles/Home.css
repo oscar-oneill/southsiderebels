@@ -1,0 +1,62 @@
+.home_container {
+    background-image: linear-gradient(to bottom, rgba(7, 6, 6, 0.5) 0%, rgba(7, 6, 6, 0.5) 100%), url('../images/smokey_park_football_snow_day_01182020.jpeg-7.JPG');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Helvetica Neue Black-Ext';
+    color: #ffffff;
+}
+
+.home_container p {
+    height: auto;
+    width: 400px;
+    font-size: 50px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.home_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 25px;
+}
+
+#home_buttons {
+    height: auto;
+    width: auto;
+    padding: 15px;
+}
+
+#home_buttons button {
+    height: 30px;
+    width: 100px;
+    background: whitesmoke;
+    color: black;
+    font-family: 'Space Grotesk-SemiBold';
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .home_content {
+        left: 0;
+        position: relative;
+    }   
+
+    .home_container p {
+        font-size: 35px;
+        width: 275px;
+    }
+}

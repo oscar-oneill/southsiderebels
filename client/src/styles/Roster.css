@@ -1,0 +1,40 @@
+.roster_container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    top: 85px;
+    position: relative;
+    z-index: -1;
+}
+
+.roster_data {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.roster_header {
+    height: 60px;
+    width: auto;
+    color: #000;
+    font-size: 30px;
+    padding: 5px;
+    font-family: "Space Grotesk-Medium";
+    letter-spacing: -1px;
+    text-align: center;
+    position: relative;
+}
+
+.roster_box {
+    width: auto;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    top: 70px;
+    overflow-y: scroll;
+}
