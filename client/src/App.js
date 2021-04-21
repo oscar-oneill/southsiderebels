@@ -10,7 +10,6 @@ import Edit from './routes/Edit';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Navigation from './Components/Navigation';
-import Search from './Components/Search';
 
 
 function App() {

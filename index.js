@@ -11,9 +11,6 @@ const port = process.env.PORT || 8980;
 app.use(cors());
 app.use(express.static(path.join(__dirname, "client/build")));
 
-console.log(__dirname);
-console.log(path.join(__dirname, "client/build"));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -98,9 +95,9 @@ app.delete('/api/v1/roster/:id', async (req, res) => {
     }
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client/build/index.html"));
+// });
 
 // Listening
 app.listen(port, () => {
