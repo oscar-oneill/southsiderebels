@@ -3,19 +3,27 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const db = require('../db');
+const db = require('./db');
 const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 8980;
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/auth", require('../routes/jwtAuth'));
-app.use("/user", require('../routes/user'));
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
+app.use("/auth", require('./routes/jwtAuth'));
+app.use("/user", require('./routes/user'));
 
 // Get all players
 app.get('/api/v1/roster', async (req, res) => {
@@ -99,5 +107,3 @@ app.delete('/api/v1/roster/:id', async (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port: ${port}...`)
 });
-
-module.exports = app;
