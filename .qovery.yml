@@ -1,11 +1,11 @@
 ---
 application:
   name: "southsiderebels"
-  project: "southsiderebels"
+  project: "southsiderebelsfootball"
   organization: "QoveryCommunity"
 databases:
 - type: "POSTGRESQL"
-  name: "southside_database"
+  name: "Postgres"
   version: "12"
 routers:
 - name: "main-southsiderebels"
