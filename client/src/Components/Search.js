@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from 'react';
-import RosterAPI from '../API/RosterAPI';
 import { Link } from 'react-router-dom';
 import { RosterContext } from '../context/RosterContext';
 import PlayerCard from './PlayerCard';
@@ -15,10 +14,12 @@ const Search = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await RosterAPI.get("/")
-                setPlayers(response.data)
+                const response = await fetch("/api/v1/roster/")
+                const data = await response.json();
+                setPlayers(data);
+                
             } catch (err) {
-                console.log(err)
+                console.log(err);
             }
         }
         fetchData(); // eslint-disable-next-line

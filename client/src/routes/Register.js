@@ -51,7 +51,6 @@ const Login = ({setAuth}) => {
         <div className="login_container">
             <div className="form">
                 <h2>Register</h2>
-                {/* <h3>{status}</h3> */}
                 <form onSubmit={chainFunction}>
                     <input value={username} onChange={(e) => setUsername(e.target.value)} name="username" type="text" placeholder="username" required/>
 

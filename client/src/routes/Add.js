@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import '../styles/Add.css';
 import Form from '../Components/Form';
-import RosterAPI from '../API/RosterAPI';
 import { RosterContext } from '../context/RosterContext';
 import successIcon from '../images/success_icon.png';
 
@@ -33,22 +32,27 @@ const Add = () => {
         e.preventDefault();
         prompt.innerHTML = '';
 
-        try {
-            const response = await RosterAPI.post("/", {
-                first_name: first, 
-                last_name: last, 
-                nickname: nickname,
-                jersey_number: jersey, 
-                primary_position: primary, 
-                secondary_position: secondary, 
-                is_active: isActive, 
-                health_condition: health,
-                gameday_status: status, 
-                image_url: image
-            })
+        const body = { 
+            first_name: first, 
+            last_name: last, 
+            nickname: nickname,
+            jersey_number: jersey, 
+            primary_position: primary, 
+            secondary_position: secondary, 
+            is_active: isActive, 
+            health_condition: health,
+            gameday_status: status, 
+            image_url: image
+        }
 
-            addPlayers(response.data.data.player)
-            console.log(response)
+        try {
+            const response = await fetch("/api/v1/roster", {
+                method: "POST", 
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+            const data = await response.json();
+            addPlayers(data.data.player);
 
             const addedPlayer = () => {
                 if (response.status !== 201) {
@@ -56,21 +60,21 @@ const Add = () => {
                         status: response.statusText,
                     }
 
-                    setMessage(fail.status)
+                    setMessage(fail.status);
 
                 } else {
                     const pass = {
                         status: `
                             <div class="player_card">
-                                <div class="player_data">
+                                <div class="player_card_data">
                                     <div class="card_left">
                                         <img id="success" src="${successIcon}" alt="success icon"/>
-                                        <img src="${response.data.data.player.image_url === "null" ? default_avatar : response.data.data.player.image_url}" alt="avatar"/>
+                                        <img src="${image === "null" ? default_avatar : image}" alt="avatar"/>
                                     </div>
 
                                     <div class="card_right">
                                         <div class="name_box">
-                                            ${response.data.data.player.primary_position} ${jersey ? "| " + jersey : ""} - ${response.data.data.player.first_name} ${response.data.data.player.last_name}
+                                            ${primary} ${jersey ? "| " + jersey : ""} - ${first} ${last}
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +94,7 @@ const Add = () => {
 
         }
         catch (err) {
-            console.log(err)
+            console.log(err);
         }
     }
 

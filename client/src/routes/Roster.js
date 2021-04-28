@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import RosterAPI from '../API/RosterAPI';
 import { RosterContext } from '../context/RosterContext';
 import '../styles/Roster.css';
 import PlayerCard from '../Components/PlayerCard';
@@ -13,10 +12,12 @@ const Roster = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await RosterAPI.get("/")
-                setPlayers(response.data)
+                const response = await fetch("/api/v1/roster");
+                const data = await response.json();
+                setPlayers(data);
+                
             } catch (err) {
-                console.log(err)
+                console.log(err);
             }
         }
         fetchData(); // eslint-disable-next-line

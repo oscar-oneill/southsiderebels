@@ -2,7 +2,6 @@ import React from 'react'
 import { useContext, useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import '../styles/Edit.css';
-import RosterAPI from '../API/RosterAPI';
 import { RosterContext } from '../context/RosterContext';
 import PlayerEditor from '../Components/PlayerEditor';
 
@@ -28,34 +27,38 @@ const Edit = () => {
     useEffect(() => {
         const fetchData = async () => {
 
-            const response = await RosterAPI.get(`/${id}`)
-                setFirst(response.data.data.player.first_name)
-                setLast(response.data.data.player.last_name)
-                setNickname(response.data.data.player.nickname)
-                setJersey(response.data.data.player.jersey_number)
-                setPrimary(response.data.data.player.primary_position)
-                setSecondary(response.data.data.player.secondary_position)
-                setActive(response.data.data.player.is_active)
-                setHealth(response.data.data.player.health_condition)
-                setStatus(response.data.data.player.gameday_status)
-                setImage(response.data.data.player.image_url)
+            const response = await fetch(`/api/v1/roster/${id}`);
+            const data = await response.json();
+
+            console.log(data);
+            setFirst(data.data.player.first_name)
+            setLast(data.data.player.last_name)
+            setNickname(data.data.player.nickname)
+            setJersey(data.data.player.jersey_number)
+            setPrimary(data.data.player.primary_position)
+            setSecondary(data.data.player.secondary_position)
+            setActive(data.data.player.is_active)
+            setHealth(data.data.player.health_condition)
+            setStatus(data.data.player.gameday_status)
+            setImage(data.data.player.image_url)
         } 
         
         fetchData(); // eslint-disable-next-line
     }, [])
 
     const deleteFunction = (e, id) => {
-        handleDelete(e, id)
-        history.push("/edit")
+        handleDelete(e, id);
+        history.push("/edit");
     }
 
     const updateFunction = (e, id) => {
-        handleUpdate(e, id)
-        history.push("/edit")
+        handleUpdate(e, id);
+        history.push("/edit");
     }
 
     const handleUpdate = async (id) => { // eslint-disable-next-line
-        const response = await RosterAPI.put(`/${id}`, {
+
+        const body = {
             id: id,
             first_name: first, 
             last_name: last, 
@@ -67,18 +70,34 @@ const Edit = () => {
             health_condition: health,
             gameday_status: status, 
             image_url: image
-        })
+        }
+
+        try {
+            const response = await fetch(`/api/v1/roster/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const handleDelete = async (e, id) => {        
         e.stopPropagation()
         try { // eslint-disable-next-line
-            const response = await RosterAPI.delete(`/${id}`)
+            const response = await fetch(`/api/v1/roster/${id}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+            });
+
             setPlayers(players.filter(player => {
                 return player.id !== id
-            }))
+            }));
+
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
     }
 

@@ -10,6 +10,7 @@ import Edit from './routes/Edit';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Navigation from './Components/Navigation';
+import ScrollToTop from './Components/ScrollToTop';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
   return (
     <RosterContextProvider>
       <Router>
+      <ScrollToTop/>
         <div className="App">
             <Route exact path="/" component={Home}/>
             <Route exact path="/auth/login" render={props => !isAuthenticated ? <Login {...props} setAuth = {setAuth} /> : <Redirect to="/roster"/>}/>

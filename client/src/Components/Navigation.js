@@ -30,7 +30,6 @@ const Navigation = ({setAuth}) => {
             } else {
                 setUsername(data.username);
             }
-            
 
         } catch (error) {
             console.error(error.message);
